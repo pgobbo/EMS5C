@@ -4,12 +4,11 @@
 		public static function show() {
 			$edifici=Edifici::show();
 			require_once('views/viewEdificio.php');
-			require_once('views/homeButton.php');
+			
 		}
 
 		public static function addShow() {
 			require_once('views/viewEdificioInsert.php');
-			require_once('views/homeButton.php');
 		}
 
 		public static function add() {
@@ -25,7 +24,6 @@
 
 		public static function updateShow() {
 			require_once('views/viewEdificioUpdate.php');
-			require_once('views/homeButton.php');
 		}
 
 		public static function update() {
