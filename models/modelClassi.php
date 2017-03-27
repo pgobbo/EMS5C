@@ -38,7 +38,7 @@
       /*if($productCode == "" && $productLine == '' && $productDescription == "")
           return "";
       else{*/ //ALL
-        $query = "SELECT * FROM classi WHERE Id like '%".$Id."%' and Codice like '%".$Codice."%' and Nome like '%".$Nome."%'";
+        $query = "SELECT * FROM classi WHERE Codice like '%".$Codice."%' and Nome like '%".$Nome."%'";
       //}
 
       try{
@@ -117,12 +117,12 @@
     public static function getHtmlTable($classi){
 
       $table = "<table class='table table-bordered'>";
-      $table = $table."<tr><th>Id</th><th>Codice</th><th>Nome</th><th>Elimina</th><th>Modifica</th></tr>";
+      $table = $table."<tr><th>Codice</th><th>Nome</th><th>Elimina</th><th>Modifica</th></tr>";
 
       foreach($classi as $c){
 
         $table = $table."<tr>";
-        $table = $table."<td>".$c->getId()."</td><td>".$c->getCodice()."</td><td>".$c->getNome()."</td>";
+        $table = $table."<td>".$c->getCodice()."</td><td>".$c->getNome()."</td>";
         $table = $table."<td>
           <form action='index.php' method='post'>
             <input type='hidden' name='Id' value='".$c->getId()."'>

@@ -44,7 +44,7 @@
 	$controllers = array('Edificio' => ['show','addShow','add','updateShow','update','delete'],
 		'Classi'=> ['visualizzaModifica', 'visualizzaHome', 'visualizzaCancella', 'visualizzaCerca', 'visualizzaInserisci', 'inserisci', 'cerca', 'cancella', 'modifica'],
 		'Istituto' => ['show','add','update', 'updateShow', 'delete'],
-		'Locali' => ['showInput', 'showFind', 'showModify', 'add', 'find', 'createTable', 'delete', 'modify'],
+		'Locali' => ['showHome', 'showInput', 'showFind', 'showModify', 'add', 'find', 'createTable', 'delete', 'modify'],
 		'Persone' => ['show', 'add', 'modifica', 'update', 'delete', 'errore'],
 		'TipoSpecializzazioni' => ['show', 'add', 'modifica', 'update', 'delete', 'errore'],
 		'Login' => ['checkLoginInput','home', 'errore'],

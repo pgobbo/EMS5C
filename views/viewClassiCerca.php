@@ -1,6 +1,4 @@
 <form action="index.php" method="post" class="form-inline">
-	<label>Id: </label>
-	<input type="number" class="form-control" name="Id" value="">
 	<label>Codice: </label>
 	<input type="text" class="form-control" name="Codice" value="">
 	<label>Nome: </label>

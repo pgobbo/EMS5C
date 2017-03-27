@@ -34,7 +34,7 @@
 	public static function cerca(){
 		require_once('/../models/modelClassi.php');
 		
-		$classi = Classi::getArrayQuery($_POST['Id'], $_POST['Codice'], $_POST['Nome']);
+		$classi = Classi::getArrayQuery($_POST['Codice'], $_POST['Nome']);
 
 		require_once('views/viewClassiTable.php');
 
