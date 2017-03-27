@@ -35,8 +35,9 @@
     
 	    public static function selectAll() {
 		     $lista = [];
-		     $connection=Connection::getInstance();
-		     $risultato = $connection->query('SELECT * FROM utenti');
+		     $connection=Connection::getConnection();
+		     $risultato = $connection->prepare('SELECT * FROM utenti');
+		     $risultato->execute();
 		     foreach($risultato->fetchAll() as $utente) {
 		        $lista[] = new Utente($utente['idUtente'], $utente['userName'], $utente['password'], $utente['email']);
 		     }
@@ -48,7 +49,7 @@
 	     	 if( $userName!="" && $password!="" && $email!=""){
 
 	         try{
-	          	 $connection=Connection::getInstance();
+	          	 $connection=Connection::getConnection();
 	          	 $result=$connection->prepare("INSERT INTO utenti(userName, password, email)
 	          	 	 VALUES ( :userName, :password, :email);");
 	          	 $result->execute(array(':userName'=>$userName,
@@ -71,7 +72,7 @@
 
     	public static function delete($userName){
 	      try{
-	          $connection=Connection::getInstance();
+	          $connection=Connection::getConnection();
 	          $risultato = $connection->prepare('DELETE FROM utenti WHERE userName="'.$userName.'";');
 	          $risultato->execute();
 	          echo "<p>Utente Cancellato!</p>";
@@ -83,7 +84,7 @@
 		public function update($userName,$password, $email){
 	       if( $userName!="" && $password!="" && $email!=""){
 		        try{
-		          $connection=Connection::getInstance();
+		          $connection=Connection::getConnection();
 		          $result=$connection->prepare("UPDATE utenti SET
 		                  password=:password,email=:email
 		                  WHERE userName=:userName;");
@@ -97,6 +98,17 @@
 	        } else {
 	        echo "<p>Verifica la correttezza dei campi (update del model utente)!</p>";
 	        }	      
+	    }
+
+	    public static function checkLoginInput($username,$password){
+	    	$connection=Connection::getConnection();
+	    	$result=$connection->prepare("SELECT * FROM utenti WHERE password='".$password."' AND userName='".$username."';");
+	    	$result->execute();
+	    	if($result){
+	    		return true;
+	    	} else {
+	    		return false;
+	    	}
 	    }
 	}
 ?>
