@@ -3,6 +3,8 @@
     <tr>
         <th>Codice Istituto</th>
         <th>Nome Istituto</th>
+        <th>Delete</th>
+        <th>Update</th>
     </tr>
     <?php
 
@@ -17,7 +19,7 @@
                 <input type='hidden' name='controller' value='Istituto'>
                 <input type='hidden' name='action' value='delete'>
                 <input type='hidden' name='idIstituto' value='". $idIstituto ."'>
-                <input type='submit' value='delete' class='btn btn-danger'/>
+                <input type='submit' value='Delete' class='btn btn-danger'/>
             </form></td>";
         echo "<td>
             <form method='get' action='index.php'>

@@ -31,7 +31,7 @@
     				echo "<input type='hidden' name='productCode' value='".$_GET['productCode']."'>";
     			?>
     			<input type="hidden" name="action" value="cancella">
-    			<input type="hidden" name="controller" value="controllerClassi">
+    			<input type="hidden" name="controller" value="Classi">
     			<button type="submit" class="btn btn-primary">Conferma</button>
     		</form>
       </div>

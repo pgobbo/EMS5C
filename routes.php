@@ -4,7 +4,7 @@
 
 		if($controller=='Login') {
 			$controller = new LoginController();
-			$controller->login();
+			$controller->home();
 		} else {
 			switch($controller) {
 				case 'Home' :
@@ -29,13 +29,12 @@
 					$controller = new TipoSpecializzazioniController();
 					break;
 			}
-
-		}
 		require_once('views/header.html');
 		require_once('views/viewMenuAside.html');
-		
+
 		$controller->{ $action }();
 		require_once('views/footer.html');
+		}
 	}
 
 	// we're adding an entry for the new controller and its actions
@@ -45,7 +44,7 @@
 		'Locali' => ['showInput', 'showFind', 'showModify', 'add', 'find', 'createTable', 'delete', 'modify'],
 		'Persone' => ['show', 'add', 'modifica', 'update', 'delete', 'errore'],
 		'TipoSpecializzazioni' => ['show', 'add', 'modifica', 'update', 'delete', 'errore'],
-		'Login' => ['login'],
+		'Login' => ['checkLoginInput','home', 'errore'],
 		'Home' => ['home']);
 		
 

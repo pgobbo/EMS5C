@@ -25,7 +25,9 @@
 		$classe = new Classe("",$_POST['Codice'], $_POST['Nome']);
 		Classi::insert($classe);
 
-		echo "<p>Inserimento eseguito</p>";
+		echo "<div class='alert alert-success' role='alert'>
+			  <a href='index.php?controller=Classi&action=visualizzaHome' class='alert-link'>Inserimento eseguito con successo!</a>
+			</div>";
 
 	}
 
@@ -44,7 +46,7 @@
 		Classi::delete($_POST['Id']);
 
 		echo "<div class='alert alert-success' role='alert'>
-			  <a href='index.php?controller=controllerClassi&action=visualizzaHome' class='alert-link'>Eliminazione eseguita con successo!</a>
+			  <a href='index.php?controller=Classi&action=visualizzaHome' class='alert-link'>Eliminazione eseguita con successo!</a>
 			</div>";
 	}
 
@@ -57,7 +59,7 @@
 		Classi::update($classe);
 
 		echo "<div class='alert alert-success' role='alert'>
-			  <a href='index.php?controller=controllerClassi&action=visualizzaHome' class='alert-link'>Modifica eseguita con successo!</a>
+			  <a href='index.php?controller=Classi&action=visualizzaHome' class='alert-link'>Modifica eseguita con successo!</a>
 			</div>";
 	}
   }

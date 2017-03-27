@@ -64,7 +64,7 @@
       require_once('/../connection.php');
 
       try{
-        $db = new Db();
+        $db = Connection::getConnection();
         $query = "INSERT INTO classi(Id, Codice, Nome) VALUES('','".$classe->getCodice()."','".$classe->getNome()."')";
 
         $stmt = $db->query($query);
@@ -83,7 +83,7 @@
 
       try{
 
-        $db = new Db();
+        $db = Connection::getConnection();
         $query = "UPDATE classi SET 
           Nome = '".$classe->getNome()."',
           Codice = '".$classe->getCodice()."'
@@ -102,7 +102,7 @@
       require_once('/../connection.php');
 
       try{
-        $db = new Db();
+        $db = Connection::getConnection();
         $query = "DELETE FROM classi WHERE Id = '".$Id."'";
         $stmt = $db->query($query);
 
@@ -117,7 +117,7 @@
     public static function getHtmlTable($classi){
 
       $table = "<table class='table table-bordered'>";
-      $table = $table."<tr><th>Id</th><th>Codice</th><th>Nome</th><th>Update</th><th>Delete</th></tr>";
+      $table = $table."<tr><th>Id</th><th>Codice</th><th>Nome</th><th>Elimina</th><th>Modifica</th></tr>";
 
       foreach($classi as $c){
 
@@ -127,17 +127,17 @@
           <form action='index.php' method='post'>
             <input type='hidden' name='Id' value='".$c->getId()."'>
             <input type='hidden' name='action' value='cancella'>
-            <input type='hidden' name='controller' value='ControllerClassi'>
+            <input type='hidden' name='controller' value='Classi'>
             
-            <button type='submit' class='btn btn-danger'>Delete</button>
+            <button type='submit' class='btn btn-danger'>Elimina</button>
           </form></td>";
         $table = $table."<td>
           <form action='index.php' method='post'>
             <input type='hidden' name='Id' value='".$c->getId()."'>
             <input type='hidden' name='action' value='visualizzaModifica'>
-            <input type='hidden' name='controller' value='ControllerClassi'>
+            <input type='hidden' name='controller' value='Classi'>
             
-            <button type='submit' class='btn btn-info' >Update</button>
+            <button type='submit' class='btn btn-info' >Modifica</button>
           </form></td>";
           
         $table = $table."</tr>";
@@ -162,8 +162,8 @@
         <input type='text' class='form-control' name='Nome' value='".$classe->getNome()."'>
         <br>
         <input type='hidden' name='action' value='modifica'>
-        <input type='hidden' name='controller' value='ControllerClassi'>
-        <input type='submit' class='btn btn-primary' value='MODIFICA'>
+        <input type='hidden' name='controller' value='Classi'>
+        <input type='submit' class='btn btn-primary' value='Modifica'>
         
       </form>";
 
