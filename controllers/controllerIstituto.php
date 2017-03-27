@@ -12,7 +12,7 @@
 
         public function add(){
         	require_once 'models/modelIstituto.php';
-		require_once 'views/viewIstituoInserisci.php';
+		require_once 'views/viewIstitutoInserisci.php';
         @	$istituto = new Istituto($_GET['idIstituto'], $_GET['codice'], $_GET['nome']);
 		Istituti::add($istituto);
         $this->show();
