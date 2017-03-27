@@ -117,7 +117,7 @@
     public static function getHtmlTable($classi){
 
       $table = "<table>";
-      $table = $table."<tr border='1'><th>Id</th><th>Codice</th><th>Nome</th><<th></th><th></th>/tr>";
+      $table = $table."<tr border='1'><th>Id</th><th>Codice</th><th>Nome</th><th></th><th></th></tr>";
 
       foreach($classi as $c){
 
