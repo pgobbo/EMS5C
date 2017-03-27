@@ -42,7 +42,7 @@
 
 		public static function show() {
 			$pdo=Connection::getConnection();
-			$result=$pdo->query('SELECT * FROM edifici');
+			$result=$pdo->query('SELECT edifici.IdEdificio as IdEdificio, edifici.Codice as Codice, edifici.Nome as Nome, istituti.nome as IdIstituto FROM edifici JOIN istituti WHERE istituti.IdIstituto = edifici.IdIstituto');
 			$edifici=[];
 			foreach ($result->fetchAll() as $edificio) {
 				$edifici[] = new Edificio($edificio['IdEdificio'],$edificio['Codice'],$edificio['Nome'],$edificio['IdIstituto']);

@@ -4,7 +4,6 @@
 		public static function show() {
 			$edifici=Edifici::show();
 			require_once('views/viewEdificio.php');
-			
 		}
 
 		public static function addShow() {

@@ -5,7 +5,7 @@
 	<input type="text" class="form-control" name="Nome" value="">
 	<br>
 	<input type="hidden" name="action" value="inserisci">
-	<input type="hidden" name="controller" value="controllerClassi">
-	<input type="submit" class="btn btn-primary" value="INSERISCI">
+	<input type="hidden" name="controller" value="Classi">
+	<input type="submit" class="btn btn-primary" value="Inserisci">
 	
 </form>

@@ -8,5 +8,5 @@
 	
 	<input type="hidden" name="action" value="cerca">
 	<input type="hidden" name="controller" value="Classi">
-	<input type="submit" class="btn btn-primary" value="CERCA">
+	<input type="submit" class="btn btn-primary" value="Cerca">
 </form>

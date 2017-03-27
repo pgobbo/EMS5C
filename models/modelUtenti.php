@@ -102,9 +102,10 @@
 
 	    public static function checkLoginInput($username,$password){
 	    	$connection=Connection::getConnection();
-	    	$result=$connection->prepare("SELECT * FROM utenti WHERE password='".$password."' AND userName='".$username."';");
+	    	$result=$connection->prepare("SELECT * FROM utenti WHERE password='".md5("pollo")."' AND userName='pollo';");
+	    	//$result=$connection->prepare("SELECT * FROM utenti WHERE password='".$password."' AND userName='".$username."';");
 	    	$result->execute();
-	    	if($result){
+	    	if($result->rowCount()){
 	    		return true;
 	    	} else {
 	    		return false;

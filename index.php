@@ -41,7 +41,7 @@
 		$controller = $_POST['controller'];
 		$action = $_POST['action'];
 	} else {
-		$controller = 'Home';
+		$controller = 'Login';
 		$action = 'home';
 	}
 	require_once('routes.php');
