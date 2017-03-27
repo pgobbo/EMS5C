@@ -17,7 +17,7 @@
 				<td>'.$edificio->getIdIstituto().'</td>
 				<td>
 					<form action="index.php">
-						<input type="submit" value="Delete" />
+						<input type="submit" value="Delete" class="btn btn-danger" />
 						<input type="hidden" name="IdEdificio" value="'.$edificio->getIdEdificio().'" />
 						<input type="hidden" name="controller" value="Edificio" />
 						<input type="hidden" name="action" value="delete" />
@@ -25,7 +25,7 @@
 				</td>
 				<td>
 					<form>
-						<input type="submit" value="Update" />
+						<input type="submit" value="Update" class="btn btn-info" />
 						<input type="hidden" name="IdEdificio" value="'.$edificio->getIdEdificio().'" />
 						<input type="hidden" name="codice" value="'.$edificio->getCodice().'" />
 						<input type="hidden" name="nome" value="'.$edificio->getNome().'" />
@@ -37,5 +37,10 @@
 			</tr>';
 	}
 	echo '</tbody>
-		</table>';
+		</table>
+		<form action="index.php">
+			<input type="submit" class="btn btn-primary" value="Inserisci" >
+			<input type="hidden" name="controller" value="Edificio" >
+			<input type="hidden" name="action" value="addShow">
+		</form>';
 ?>
