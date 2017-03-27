@@ -104,7 +104,7 @@
 	    	$connection=Connection::getConnection();
 	    	$result=$connection->prepare("SELECT * FROM utenti WHERE password='".$password."' AND userName='".$username."';");
 	    	$result->execute();
-	    	if($result){
+	    	if(!empty($result->fetch(PDO::FETCH_ASSOC))){
 	    		return true;
 	    	} else {
 	    		return false;
