@@ -30,7 +30,7 @@ require_once("./connection.php");
         }
            
         function addLocale(){
-            $db=Db::getInstance();
+            $db=Connection::getConnection();
             $stmt="INSERT INTO locali(Codice,Descrizione,IdEdificio) values('".$this->codice."','".$this->descrizione."','".$this->IdEdificio."')";
             return $db->exec($stmt);
         }
@@ -49,7 +49,7 @@ require_once("./connection.php");
         }
 
         function getLocali($query){
-            $db= Db::getInstance();
+            $db= Connection::getConnection();
             //$db= new PDO('mysql:host=192.168.1.252;dbname=singola5cin','5cpegoraro' ,'PegoNicoRaro');
             $results= $db->query($query);
             $i=0;
@@ -63,14 +63,14 @@ require_once("./connection.php");
         }
 
         function delete($idLocale){
-                $db=Db::getInstance();
+                $db=Connection::getConnection();
                 $query="DELETE FROM locali WHERE idLocale='".$idLocale."'";
                 $exec=$db->exec($query);
                 return $exec;
         }
 
         function modify(){
-            $db=Db::getInstance();
+            $db=Connection::getConnection();
             try{
                 $query="UPDATE locali SET Codice ='".$_POST['Codice']."' , Descrizione = '".$_POST['Descrizione']."', IdEdificio = ".$_POST['IdEdificio']." WHERE IdLocale = ".$_POST['IdLocale']."";
                 //print_r($query);

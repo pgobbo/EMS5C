@@ -2,8 +2,8 @@
 <?php include("controllers/controllerLocali.php"); ?>
 
 	<h1>Benevenuto nella gestione dei locali della scuola!</h1>
-	<br> <a href=index.php?controller=controllerLocali&action=showInput>Inserisci Locale</a>
-	<br> <a href=index.php?controller=controllerLocali&action=showFind>Visualizza </a>
+	<br> <a href=index.php?controller=Locali&action=showInput>Inserisci Locale</a>
+	<br> <a href=index.php?controller=Locali&action=showFind>Visualizza </a>
 	<br>
 	<table border="1" style="border-collapse: collapse;">
 	    <thead>
@@ -15,7 +15,7 @@
 	    </thead>
 	    <tbody>
 	<?php 
-		require_once("controllers/ControllerLocaliFind.php");
+		require_once("controllers/controllerLocali.php");
 	            controllerLocali::showAll();
 	?>
 	</tbody>
