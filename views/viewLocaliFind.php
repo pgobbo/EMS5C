@@ -40,7 +40,7 @@
         <tbody>
             <?php
                 require_once("controllers/ControllerLocaliFind.php");
-                controllerLocaliFind::createTable();
+                controllerLocali::createTable();
             ?>
         </tbody>
     </table>

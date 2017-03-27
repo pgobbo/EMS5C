@@ -16,7 +16,7 @@
 	    <tbody>
 	<?php 
 		require_once("controllers/ControllerLocaliFind.php");
-	            controllerLocaliFind::showAll();
+	            controllerLocali::showAll();
 	?>
 	</tbody>
 	</table>
