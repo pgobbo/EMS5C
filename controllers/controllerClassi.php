@@ -14,14 +14,6 @@
 		require_once('views/viewClassiCancella.php');
 	}
 
-	public function visualizzaCerca(){
-		require_once('/../models/modelClassi.php');
-		
-		$classi = Classi::getArrayQuery("", "", "");
-
-		require_once('views/viewClassiTable.php');
-	}
-
 	public function visualizzaInserisci(){
 		require_once('views/viewClassiInserisci.php');
 	}
