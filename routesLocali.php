@@ -15,7 +15,7 @@
             $action=$_POST['action'];
              //echo "action is set=".$action;
         } else {
-            $controller = 'controllerHomeLocali';
+            $controller = 'controllerLocali';
             $action     = 'show';
         }
 
