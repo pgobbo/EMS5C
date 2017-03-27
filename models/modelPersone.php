@@ -53,8 +53,9 @@
     
     public static function selectAll() {
       $lista = [];
-      $connection=Connection::getInstance();
-      $risultato = $connection->query('SELECT * FROM persone');
+      $connection=Connection::getConnection();
+      $risultato = $connection->prepare('SELECT * FROM persone');
+      $risultato->execute();
 
       foreach($risultato->fetchAll() as $persona) {
         $lista[] = new Persona($persona['idPersona'], $persona['codiceFiscale'], $persona['nome'], $persona['cognome'], $persona['recapito'],$persona['tipoSpecializzazione'],$persona['titolare']);
@@ -67,7 +68,7 @@
       //aggiunta controllo su tipospecializzazione e titolare
       if($codiceFiscale!="" && $nome!="" && $cognome!="" && $recapito!="" && $tipoSpecializzazione!="" && $titolare!=""){
         try{
-          $connection=Connection::getInstance();
+          $connection=Connection::getConnection();
           $result=$connection->prepare("INSERT INTO persone(codiceFiscale, nome, cognome, recapito,tipoSpecializzazione,titolare) VALUES
             (:codiceFiscale, :nome, :cognome, :recapito,:tipoSpecializzazione,:titolare);");
           $result->execute(array('codiceFiscale'=>$codiceFiscale,':nome'=>$nome,
@@ -96,8 +97,9 @@
 
     public static function delete($idPersona){
       try{
-          $connection=Connection::getInstance();
-          $risultato = $connection->query('DELETE FROM persone WHERE idPersona='.$idPersona.';');
+          $connection=Connection::getConnection();
+          $risultato = $connection->prepare('DELETE FROM persone WHERE idPersona='.$idPersona.';');
+          $risultato->execute();
           echo "<p>Persona Cancellata!</p>";
         } catch (PDOException $ex){
           echo "Errore PDO nella cancellazione della Persona!";
@@ -108,7 +110,7 @@
       //Tipo specializzazione e titolare sono per forza diversi da "" perche li seleziono da un menu a tendina
       if($codiceFiscale!="" && $nome!="" && $cognome!="" && $recapito!=""){
         try{
-          $connection=Connection::getInstance();
+          $connection=Connection::getConnection();
           $result=$connection->prepare("UPDATE persone SET codiceFiscale=:codiceFiscale,nome=:nome,
                    cognome=:cognome,recapito=:recapito,tipoSpecializzazione=:tipoSpecializzazione,titolare=:titolare
                    WHERE idPersona=:idPersona;");

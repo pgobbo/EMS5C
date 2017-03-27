@@ -1,6 +1,7 @@
 <!--Form inserimento e modifica-->
 <?php
-    echo "<form action='index.php' method='post'>
+    echo "<div class='content'>
+    	<form action='index.php' method='post'>
             codiceFiscale:
             <input type='text' name='codiceFiscale' value='".$codiceFiscale."'>
             <br>
@@ -79,3 +80,4 @@
         	?>
         </tbody>
 </table>
+</div>

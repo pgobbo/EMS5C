@@ -37,7 +37,7 @@
 	    }
 
 	 	public function errore() {
-	     	 require_once('views/errore.php');
+	     	 require_once('views/viewError404.php');
 	    }
 
 	}

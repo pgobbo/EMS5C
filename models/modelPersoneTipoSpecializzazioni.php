@@ -29,8 +29,9 @@
   class TipiSpecializzazione {
     public static function selectAll(){
       $lista = [];
-      $connection=Connection::getInstance();
-      $risultato = $connection->query('SELECT * FROM tipospecializzazioni;');
+      $connection=Connection::getConnection();
+      $risultato = $connection->prepare('SELECT * FROM tipospecializzazioni;');
+      $risultato->execute();
       foreach($risultato->fetchAll() as $tipoSpecializzazione) {
         $lista[] = new TipoSpecializzazione($tipoSpecializzazione['idSpecializzazione'],$tipoSpecializzazione['nome'],$tipoSpecializzazione['descrizione']);
       }
