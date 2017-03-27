@@ -19,6 +19,24 @@ require_once("models/modelLocali.php");
 			require_once("./views/viewLocaliModify.php");
 		}
 
+		function showAll(){
+			$locali=new Locali();
+			$query=$locali->getAll();
+			$list_locali=$locali->getLocali($query);
+			
+			foreach ($list_locali as $row=>$value) {
+					echo "<tr> <form method=POST action='index.php'>";
+						echo "<td align='center'> <input type='hidden' name='IdLocale' value='".$value->getId()."'>".$value->getId()."</td>";
+						echo "<td align='center'> <input type='hidden' name='Codice' value='".$value->getCodice()."'>".$value->getCodice()."</td>";
+						echo "<td align='center'> <input type='hidden' name='Descrizione' value='".$value->getDescrizione()."'>".$value->getDescrizione()."</td>";
+						echo "<td align='center'> <input type='hidden' name='IdEdificio' value='".$value->getIdEdificio()."'>".$value->getIdEdificio()."</td>";
+						echo "<td> <button> Scelgo Te! </button></td>";
+						echo "<input type='hidden' name='controller' value='controllerLocali'>";
+						echo "<input type='hidden' name='action' value='showModify'>";
+					echo "</form></tr>";
+				}
+		}
+
 		function add(){
 			$codice=$_POST['Codice'];
 			$descrizione=$_POST['Descrizione'];

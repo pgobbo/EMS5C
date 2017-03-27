@@ -38,6 +38,11 @@ require_once("./connection.php");
 
     class Locali{
 
+        function getAll(){
+            $query="SELECT * FROM locali";
+            return $query;
+        }
+
         function getFindQuery($id,$codice,$descrizione,$IdEdificio){
             $query="SELECT * from locali where IdLocale like '%".$id."%' and Codice like '%".$codice."%' and Descrizione like'%".$descrizione."%' and IdEdificio like '%".$IdEdificio."%'";
             return $query;

@@ -1,2 +1,10 @@
 <a href="index.php?controller=controllerClassi&action=visualizzaInserisci">Inserisci classe</a><br>
-<a href="index.php?controller=controllerClassi&action=visualizzaCerca">Modifica classe</a>
+<?php
+
+	require_once('/../models/modelClassi.php');
+		
+	$classi = Classi::getArrayQuery("", "", "");
+
+	require_once('views/viewClassiTable.php');
+
+?>
