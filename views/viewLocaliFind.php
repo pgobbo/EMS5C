@@ -1,7 +1,4 @@
-<div><!-- content -->
-    <?php
-    include("controllers/controllerLocali.php")
-    ?>
+<div class="content"><!-- content -->
 
     <form action="index.php" method="get">  
         <h1>Find Locale</h1>
@@ -17,13 +14,13 @@
         IdEdificio :<br>
         <input type="text" name="IdEdificio">
 
-        <input type="hidden" name="controller" value="controllerLocali">
+        <input type="hidden" name="controller" value="Locali">
         <input type="hidden" name="action" value="find">
         <input type="submit" value="Find Out" class="btn">
     </form> 
     <br>
     <form action="index.php" method="get">
-        <input type="hidden" name="controller" value="controllerLocali">
+        <input type="hidden" name="controller" value="Locali">
         <input type="hidden" name="action" value="showHome">
         <input type="submit" value="HOME" class="btn btn-primary">
     </form>
@@ -39,7 +36,7 @@
         </thead>
         <tbody>
             <?php
-                require_once("controllers/ControllerLocaliFind.php");
+                require_once("controllers/ControllerLocali.php");
                 controllerLocali::createTable();
             ?>
         </tbody>

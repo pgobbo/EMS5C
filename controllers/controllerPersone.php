@@ -1,4 +1,7 @@
 <?php
+
+  require_once("/../models/modelPersone.php");
+
   class PersoneController {
     //modifica da get a post
     

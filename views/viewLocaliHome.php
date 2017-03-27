@@ -1,5 +1,4 @@
 <div> <!-- content -->
-<?php include("controllers/controllerLocali.php"); ?>
 
 	<h1>Benevenuto nella gestione dei locali della scuola!</h1>
 	<br> <a href=index.php?controller=Locali&action=showInput>Inserisci Locale</a>
@@ -16,7 +15,7 @@
 	    <tbody>
 	<?php 
 		require_once("controllers/controllerLocali.php");
-	            controllerLocali::showAll();
+	    controllerLocali::showAll();
 	?>
 	</tbody>
 	</table>

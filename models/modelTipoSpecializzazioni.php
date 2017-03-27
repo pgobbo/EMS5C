@@ -40,7 +40,7 @@ class TipoSpecializzazioni{
 
 
       $lista = array();
-      $connection=Connection::getInstance();
+      $connection=Connection::getConnection();
       //nome tabella su maria db non accetta le maiuscole
       $risultato = $connection->query('SELECT * FROM tipospecializzazioni;');
       $i=0;
@@ -62,7 +62,7 @@ class TipoSpecializzazioni{
     public static function add($nome,$descrizione){
       if($nome!="" && $descrizione!="" ){
         try{
-          $connection=Connection::getInstance();
+          $connection=Connection::getConnection();
           $result=$connection->prepare("INSERT INTO tipospecializzazioni( nome, descrizione) VALUES
             (:nome, :descrizione)");
           $result->execute(array(':nome'=>$nome,
@@ -86,7 +86,7 @@ class TipoSpecializzazioni{
 
     public static function delete($idTipoSpecializzazione){
       try{
-          $connection=Connection::getInstance();
+          $connection=Connection::getConnection();
           $risultato = $connection->query('DELETE FROM tipospecializzazioni WHERE idSpecializzazione='.$idTipoSpecializzazione.';');
           echo "<p>tipo specializzazione Cancellata!</p>";
         } catch (PDOException $ex){
@@ -97,7 +97,7 @@ class TipoSpecializzazioni{
      public function update($idTipoSpecializzazione,$nome,$descrizione){
       if($idTipoSpecializzazione!="" && $nome!="" && $descrizione!=""){
         try{
-          $connection=Connection::getInstance();
+          $connection=Connection::getConnection();
           $result=$connection->prepare("UPDATE tipospecializzazioni SET nome=:nome,
                    descrizione=:descrizione
                    WHERE idSpecializzazione=:idSpecializzazione;");

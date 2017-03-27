@@ -14,9 +14,9 @@
       if(Utenti::checkLoginInput($username,$password)){
         $_SESSION["username"]=$username;
         $_SESSION["password"]=$password;
-        //header('Location: index.php?controller=Home&action=home');
+        header('Location: index.php?controller=Home&action=home');
       } else {
-        //require_once('views/viewLogin.html');
+        require_once('views/viewLogin.html');
         echo "password e username errata";
       }
     }

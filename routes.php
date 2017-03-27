@@ -4,9 +4,12 @@
 
 		if($controller=='Login') {
 			$controller = new LoginController();
-			$controller->home();
+			$controller->{ $action }();
 		} else {
 			switch($controller) {
+				case 'Login':
+					$controller = new LoginController();
+					break;
 				case 'Home' :
 					$controller = new HomeController();
 					break;

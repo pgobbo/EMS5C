@@ -1,4 +1,7 @@
 <?php
+	
+	require_once("/../models/modelTipoSpecializzazioni.php");
+
 	class TipoSpecializzazioniController{
 
 		public function show(){

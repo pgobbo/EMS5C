@@ -34,7 +34,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Inserisci i dati per cominciare la sessione</p>
 
-    <form action="index.php?controller=Login&action=checkLoginInput" method="post">
+    <form action="index.php" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Username" name="userName">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -52,8 +52,10 @@
           </div>
         </div>
         <!-- /.col -->
+        <input type="hidden" name="controller" value="Login">
+        <input type="hidden" name="action" value="checkLoginInput">
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Entra</button>
+          <input type="submit" class="btn btn-primary btn-block btn-flat" value="Entra"></input>
         </div>
         <!-- /.col -->
       </div>

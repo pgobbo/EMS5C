@@ -31,7 +31,7 @@ require_once("models/modelLocali.php");
 						echo "<td align='center'> <input type='hidden' name='Descrizione' value='".$value->getDescrizione()."'>".$value->getDescrizione()."</td>";
 						echo "<td align='center'> <input type='hidden' name='IdEdificio' value='".$value->getIdEdificio()."'>".$value->getIdEdificio()."</td>";
 						echo "<td> <button> Scelgo Te! </button></td>";
-						echo "<input type='hidden' name='controller' value='controllerLocali'>";
+						echo "<input type='hidden' name='controller' value='Locali'>";
 						echo "<input type='hidden' name='action' value='showModify'>";
 					echo "</form></tr>";
 				}
@@ -93,7 +93,7 @@ require_once("models/modelLocali.php");
 						echo "<td align='center'> <input type='hidden' name='Descrizione' value='".$value->getDescrizione()."'>".$value->getDescrizione()."</td>";
 						echo "<td align='center'> <input type='hidden' name='IdEdificio' value='".$value->getIdEdificio()."'>".$value->getIdEdificio()."</td>";
 						echo "<td> <button> Scelgo Te! </button></td>";
-						echo "<input type='hidden' name='controller' value='controllerLocali'>";
+						echo "<input type='hidden' name='controller' value='Locali'>";
 						echo "<input type='hidden' name='action' value='showModify'>";
 					echo "</form></tr>";
 				}
