@@ -1,17 +1,15 @@
 <?php
 	echo '<table class="table table-bordered">
 			<thead>
-				<th>IdEdificio</th>
 				<th>Codice</th>
 				<th>Nome</th>
-				<th>IdIstituto</th>
+				<th>Nome Istituto</th>
 				<th>Remove</th>
 				<th>Update</th>
 			</thead>
 			<tbody>';
 	foreach($edifici as $edificio) {
 		echo '<tr>
-				<td>'.$edificio->getIdEdificio().'</td>
 				<td>'.$edificio->getCodice().'</td>
 				<td>'.$edificio->getNome().'</td>
 				<td>'.$edificio->getIdIstituto().'</td>

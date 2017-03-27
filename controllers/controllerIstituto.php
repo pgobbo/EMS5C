@@ -6,7 +6,6 @@
         	require_once 'models/modelIstituto.php';
             $model = new Istituti();
             $lista = $model->show();
-            
             require_once 'views/viewIstitutoVisualizza.php';
         }
 
@@ -15,6 +14,7 @@
 		require_once 'views/viewIstitutoInserisci.php';
         @	$istituto = new Istituto($_GET['idIstituto'], $_GET['codice'], $_GET['nome']);
 		Istituti::add($istituto);
+        echo '<br>';
         $this->show();
         	
         }

@@ -31,8 +31,11 @@
 			}
 
 		}
+		require_once('views/header.html');
+		require_once('views/viewMenuAside.html');
 		
 		$controller->{ $action }();
+		require_once('views/footer.html');
 	}
 
 	// we're adding an entry for the new controller and its actions
