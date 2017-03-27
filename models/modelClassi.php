@@ -117,7 +117,7 @@
     public static function getHtmlTable($classi){
 
       $table = "<table>";
-      $table = $table."<tr border='1'><th>Id</th><th>Codice</th><th>Nome</th><th></th><th></th></tr>";
+      $table = $table."<tr border='1'><th>Id</th><th>Codice</th><th>Nome</th><th>Update</th><th>Delete</th></tr>";
 
       foreach($classi as $c){
 
@@ -126,19 +126,20 @@
         $table = $table."<td>
           <form action='index.php' method='post'>
             <input type='hidden' name='Id' value='".$c->getId()."'>
-            <input type='hidden' name='action' value='visualizzaModifica'>
-            <input type='hidden' name='controller' value='ControllerClassi'>
-            
-            <button type='submit' class='btn btn-primary' >Modifica</button>
-          </form></td>";
-          $table = $table."<td>
-          <form action='index.php' method='post'>
-            <input type='hidden' name='Id' value='".$c->getId()."'>
             <input type='hidden' name='action' value='cancella'>
             <input type='hidden' name='controller' value='ControllerClassi'>
             
-            <button type='submit' class='btn btn-primary'>Cancella</button>
+            <button type='submit' class='btn btn-danger'>Delete</button>
           </form></td>";
+        $table = $table."<td>
+          <form action='index.php' method='post'>
+            <input type='hidden' name='Id' value='".$c->getId()."'>
+            <input type='hidden' name='action' value='visualizzaModifica'>
+            <input type='hidden' name='controller' value='ControllerClassi'>
+            
+            <button type='submit' class='btn btn-info' >Update</button>
+          </form></td>";
+          
         $table = $table."</tr>";
       }
 
