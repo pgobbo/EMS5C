@@ -42,13 +42,7 @@
                     </td>
                 </tr>";
             }
-            echo "
-            <form method='get' action='index.php'>
-                            <input type='submit' value='Home'>
-                            <input type='hidden' name='controller' value='home'>
-                            <input type='hidden' name='action' value='show'>
-                        </form>
-                        "
+            
             ?>
         </table>
     </body>

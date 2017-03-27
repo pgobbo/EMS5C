@@ -3,7 +3,7 @@ require_once("models/modelLocali.php");
 
 	class controllerLocali{
 
-		function showHome()){
+		function showHome(){
 			require_once("views/viewLocaliHome.php");
 		}
 

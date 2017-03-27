@@ -42,7 +42,7 @@
       //}
 
       try{
-        $db = new Db();
+        $db = Connection::getConnection();
         $result = $db->query($query);
         $i = 0;
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
