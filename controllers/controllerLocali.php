@@ -70,8 +70,8 @@ require_once("models/modelLocali.php");
 						echo "<td align='center'> <input type='hidden' name='Codice' value='".$value->getCodice()."'>".$value->getCodice()."</td>";
 						echo "<td align='center'> <input type='hidden' name='Descrizione' value='".$value->getDescrizione()."'>".$value->getDescrizione()."</td>";
 						echo "<td align='center'> <input type='hidden' name='IdEdificio' value='".$value->getIdEdificio()."'>".$value->getIdEdificio()."</td>";
-						echo "<td> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=showModify' class='btn btn-primary'>Modifica</td>";
-						echo "<td> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=delete' class='btn btn-danger'>Cancella</td>";
+						echo "<td align='center'> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=showModify' class='btn btn-primary'>Modifica</td>";
+						echo "<td align='center'> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=delete' class='btn btn-danger'>Cancella</td>";
 					echo "</form></tr>";
 				}
 			}
@@ -87,8 +87,8 @@ require_once("models/modelLocali.php");
 							echo "<td align='center'> <input type='hidden' name='Codice' value='".$value->getCodice()."'>".$value->getCodice()."</td>";
 							echo "<td align='center'> <input type='hidden' name='Descrizione' value='".$value->getDescrizione()."'>".$value->getDescrizione()."</td>";
 							echo "<td align='center'> <input type='hidden' name='IdEdificio' value='".$value->getIdEdificio()."'>".$value->getIdEdificio()."</td>";
-							echo "<td> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=showModify' class='btn btn-primary'>Modifica</td>";
-							echo "<td> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=delete' class='btn btn-danger'>Cancella</td>";
+							echo "<td align='center'> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=showModify' class='btn btn-primary'>Modifica</td>";
+							echo "<td align='center'> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=delete' class='btn btn-danger'>Cancella</td>";
 							
 						echo "</form></tr>";
 					}

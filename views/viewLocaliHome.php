@@ -35,6 +35,11 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<style type="text/css"> 
+th{
+	text-align:center;
+}
+</style>
 
 <div class="content"><!-- content -->
 
@@ -69,14 +74,14 @@
     </form> 
     <p>____________________________________________________________________________________________________________________________________</p>
     <h3>Find Locali <form style="float: right;"><button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=showInput' class='btn btn-success '>Inserisci</button></form></h3>
-    <table border="1" style="border-collapse: collapse;">
-        <thead>
+    <table style="border-collapse: collapse; width: 100%" class="table table-striped table-hover table-responsive">
+        <thead >
             <th>ID Locale</th>
             <th>Codice Locale</th>
             <th>Descrizione </th>
             <th>ID Edificio</th>
-            <th>Modifica</th>
-            <th>Cancella</th>
+            <th></th>
+            <th></th>
 
         </thead>
         <tbody>
@@ -87,10 +92,3 @@
         </tbody>
     </table>
 </div><!-- content -->
-
-<!--
-<?php 
-		//require_once("controllers/controllerLocali.php");
-	    //controllerLocali::showAll();
-	?> 
--->

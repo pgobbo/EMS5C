@@ -1,8 +1,5 @@
-
-
-    
-        <h1>Modifica Locale : <?php echo $_POST['IdLocale'];?></h1>
-        <div class="content">
+ <h1>Modifica Locale : <?php echo $_POST['IdLocale'];?></h1>
+<div class="content">
         <form action='index.php' method="POST">
             <div class="row">
                 <div class="form-group col-lg-4">
@@ -36,12 +33,11 @@
                 <input type="submit" value="Modify" class="btn btn-success">
             </div>
             </form>
-            
          <br>
-            <form action="index.php" method="GET">
+            <form action="index.php" method="POST" >
                 <input type="hidden" name="controller" value="Locali">
                 <input type="hidden" name="action" value="showHome">
-                <input type="submit" value="HOME" class="btn btn-primary">
+                <input type="submit" value="HOME" class="btn btn-primary" style="margin-left: 6px;">
             </form>
 
 </div><!-- content -->
