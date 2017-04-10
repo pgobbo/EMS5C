@@ -4,12 +4,14 @@
 		private $userName;
 		private $password;
 		private $email;
+		private $admin;
 
-		public function __construct($idUtente,$userName,$password,$email){
+		public function __construct($idUtente,$userName,$password,$email,$admin){
 		 	$this->idUtente = $idUtente;
       		$this->userName = $userName;
       		$this->password = $password;
       		$this->email = $email;
+      		$this->admin = $admin;
 		}
 
 		public function getIdUtente(){
@@ -28,10 +30,22 @@
       		return $this->email;
    		}
 
+   		public function getAdmin(){
+   			return $this->admin;
+   		}
+
 	}
 
 	class Utenti{
 		public static $actionButton="insert";
+
+		public static function getAdmin($username,$password){
+			$connection=Connection::getConnection();
+			$result=$connection->prepare("SELECT admin FROM utenti WHERE password='".$password."' AND userName='".$username."';");
+	    	$result->execute();
+	    	$admin = $result->fetchAll()['admin'];
+	    	return $admin;
+		}
     
 	    public static function selectAll() {
 		     $lista = [];
