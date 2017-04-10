@@ -28,8 +28,8 @@
 				case 'Persone':
 					$controller = new PersoneController();
 					break;
-				case 'TipoSpecializzazioni':
-					$controller = new TipoSpecializzazioniController();
+				case 'Error':
+					$controller=new controllerError();
 					break;
 			}
 		require_once('views/header.html');
@@ -46,7 +46,6 @@
 		'Istituto' => ['show','add','update', 'updateShow', 'delete'],
 		'Locali' => ['showHome', 'showInput', 'showFind', 'showModify', 'add', 'find', 'createTable', 'delete', 'modify'],
 		'Persone' => ['show', 'add', 'modifica', 'update', 'delete', 'errore'],
-		'TipoSpecializzazioni' => ['show', 'add', 'modifica', 'update', 'delete', 'errore'],
 		'Login' => ['checkLoginInput','home', 'errore'],
 		'Home' => ['home']);
 		
