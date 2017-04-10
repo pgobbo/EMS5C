@@ -1,8 +1,6 @@
 <div><!-- content -->
-	<?php
-	include("controllers/controllerLocali.php")
-	?>
-	<form action="index.php?controller=controllerLocali&action=add" method="POST">
+	
+	<form action="index.php?controller=Locali&action=add" method="POST">
 		<h1>Inserisci un nuovo Locale</h1>
 		Codice:<br>
 		<input type="text" name="Codice" placeholder="varchar(10)" required="required">
@@ -16,7 +14,7 @@
 	</form>
 	<br>
 	<form action="index.php" method="get">
-	    <input type="hidden" name="controller" value="controllerLocali"></input>
+	    <input type="hidden" name="controller" value="Locali"></input>
 	    <input type="hidden" name="action" value="showHome"></input>
 	    <input type="submit" value="HOME" class="btn btn-primary">
 	</form>

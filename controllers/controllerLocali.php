@@ -11,30 +11,8 @@ require_once("models/modelLocali.php");
 			require_once("views/viewLocaliInput.php");
 		}
 
-		function showFind(){
-			require_once("views/viewLocaliFind.php");
-		}
-
 		function showModify(){
 			require_once("./views/viewLocaliModify.php");
-		}
-
-		function showAll(){
-			$locali=new Locali();
-			$query=$locali->getAll();
-			$list_locali=$locali->getLocali($query);
-			
-			foreach ($list_locali as $row=>$value) {
-					echo "<tr> <form method=POST action='index.php'>";
-						echo "<td align='center'> <input type='hidden' name='IdLocale' value='".$value->getId()."'>".$value->getId()."</td>";
-						echo "<td align='center'> <input type='hidden' name='Codice' value='".$value->getCodice()."'>".$value->getCodice()."</td>";
-						echo "<td align='center'> <input type='hidden' name='Descrizione' value='".$value->getDescrizione()."'>".$value->getDescrizione()."</td>";
-						echo "<td align='center'> <input type='hidden' name='IdEdificio' value='".$value->getIdEdificio()."'>".$value->getIdEdificio()."</td>";
-						echo "<td> <button> Scelgo Te! </button></td>";
-						echo "<input type='hidden' name='controller' value='Locali'>";
-						echo "<input type='hidden' name='action' value='showModify'>";
-					echo "</form></tr>";
-				}
 		}
 
 		function add(){
@@ -80,23 +58,40 @@ require_once("models/modelLocali.php");
 		    $list_locali=$locali->getLocali($query);
 
 		    $_GET['locali']=$list_locali;
-		    require('./views/viewLocaliFind.php');
+		    require_once("views/viewLocaliHome.php");
 		}
 
 		function createTable(){
 			
 			if(isset($_GET['locali'])){
 				foreach ($_GET['locali'] as $row=>$value) {
-					echo "<tr> <form method=POST action='index.php'>";
+					echo "<tr> <form>";
 						echo "<td align='center'> <input type='hidden' name='IdLocale' value='".$value->getId()."'>".$value->getId()."</td>";
 						echo "<td align='center'> <input type='hidden' name='Codice' value='".$value->getCodice()."'>".$value->getCodice()."</td>";
 						echo "<td align='center'> <input type='hidden' name='Descrizione' value='".$value->getDescrizione()."'>".$value->getDescrizione()."</td>";
 						echo "<td align='center'> <input type='hidden' name='IdEdificio' value='".$value->getIdEdificio()."'>".$value->getIdEdificio()."</td>";
-						echo "<td> <button> Scelgo Te! </button></td>";
-						echo "<input type='hidden' name='controller' value='Locali'>";
-						echo "<input type='hidden' name='action' value='showModify'>";
+						echo "<td> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=showModify' class='btn btn-primary'>Modifica</td>";
+						echo "<td> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=delete' class='btn btn-danger'>Cancella</td>";
 					echo "</form></tr>";
 				}
+			}
+			else{
+
+				$locali=new Locali();
+				$query=$locali->getAll();
+				$list_locali=$locali->getLocali($query);
+				
+				foreach ($list_locali as $row=>$value) {
+						echo "<tr> <form >";
+							echo "<td align='center'> <input type='hidden' name='IdLocale' value='".$value->getId()."'>".$value->getId()."</td>";
+							echo "<td align='center'> <input type='hidden' name='Codice' value='".$value->getCodice()."'>".$value->getCodice()."</td>";
+							echo "<td align='center'> <input type='hidden' name='Descrizione' value='".$value->getDescrizione()."'>".$value->getDescrizione()."</td>";
+							echo "<td align='center'> <input type='hidden' name='IdEdificio' value='".$value->getIdEdificio()."'>".$value->getIdEdificio()."</td>";
+							echo "<td> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=showModify' class='btn btn-primary'>Modifica</td>";
+							echo "<td> <button type='submit' formmethod='post' formaction='index.php?controller=Locali&action=delete' class='btn btn-danger'>Cancella</td>";
+							
+						echo "</form></tr>";
+					}
 			}
 		}
 	
@@ -106,10 +101,10 @@ require_once("models/modelLocali.php");
 			//print_r($_POST['IdLocale']);
 			if(Locali::delete($_POST['IdLocale'])){
 				echo("<script type='text/javascript'>alert('Ho rimosso il Prodotto ".$_POST['IdLocale']."!');</script>");
-				require_once("./views/home.php");
+				require_once("./views/viewLocaliHome.php");
 			}else{
 				echo("<script type='text/javascript'>alert('NON SONO RIUSCITO A RIMUOVERE IL PRODOTTO ".$_POST['IdLocale']."! ');</script>");
-				require_once("./views/home.php");
+				require_once("./views/viewLocaliHome.php.php");
 			}
 		}
 
