@@ -28,7 +28,7 @@
             }
 ?>        
                 
-<table border=black>
+<table border=black id="tablePersone">
 	<thead>
     	<th>idPersona</th><th>codiceFiscale</th><th>nome</th><th>cognome</th><th>recapito</th><th>Modifica</th>
     </thead>

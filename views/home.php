@@ -5,3 +5,9 @@
 	//require_once('provaBrutale.html');
 	require_once('views/footer.html');
  ?>
+
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+	    $('#tablePersone').DataTable();
+	});
+ </script>
