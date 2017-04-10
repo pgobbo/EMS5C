@@ -5,17 +5,18 @@
     private $nome;
     private $cognome;
     private $recapito;
-    private $tipoSpecializzazione;
-    private $titolare;
+    private $idIstituto;
+    private $idClasse;
 
-    public function __construct($idPersona, $codiceFiscale, $nome,$cognome, $recapito, $tipoSpecializzazione, $titolare) {
+    public function __construct($idPersona, $codiceFiscale, $nome,$cognome, $recapito,$idIstituto,$idClasse)
+     {
       $this->idPersona = $idPersona;
       $this->codiceFiscale = $codiceFiscale;
       $this->nome = $nome;
       $this->cognome = $cognome;
       $this->recapito = $recapito;
-      $this->tipoSpecializzazione = $tipoSpecializzazione;
-      $this->titolare = $titolare;
+      $this->idIstituto = $idIstituto;
+      $this->idClasse = $idClasse;
     }
 
     public function getIdPersona(){
@@ -38,12 +39,12 @@
       return $this->recapito;
     }
 
-    public function getTipoSpecializzazione(){
-      return $this->tipoSpecializzazione;
+    public function getIdIstituto(){
+      return $this->idIstituto;
     }
 
-    public function getTitolare(){
-      return $this->titolare;
+    public function getIdClasse(){
+      return $this->idClasse;
     }
 
   }
@@ -58,21 +59,23 @@
       $risultato->execute();
 
       foreach($risultato->fetchAll() as $persona) {
-        $lista[] = new Persona($persona['idPersona'], $persona['codiceFiscale'], $persona['nome'], $persona['cognome'], $persona['recapito'],$persona['tipoSpecializzazione'],$persona['titolare']);
+        $lista[] = new Persona($persona['idPersona'], $persona['codiceFiscale'], $persona['nome'], $persona['cognome'], $persona['recapito'],$persona['idIstituto'],$persona['idClasse']);
       }
 
       return $lista;
     }
 
-    public static function add($codiceFiscale, $nome,$cognome, $recapito, $tipoSpecializzazione, $titolare){
+    public static function add($idPersona, $codiceFiscale, $nome,$cognome, $recapito,$idIstituto,$idClasse){
       //aggiunta controllo su tipospecializzazione e titolare
-      if($codiceFiscale!="" && $nome!="" && $cognome!="" && $recapito!="" && $tipoSpecializzazione!="" && $titolare!=""){
+      if($codiceFiscale!="" && $nome!="" && $cognome!="" && $recapito!="" && $titolare!="" && $idIstituto="" && $idClasse=""){
         try{
           $connection=Connection::getConnection();
-          $result=$connection->prepare("INSERT INTO persone(codiceFiscale, nome, cognome, recapito,tipoSpecializzazione,titolare) VALUES
-            (:codiceFiscale, :nome, :cognome, :recapito,:tipoSpecializzazione,:titolare);");
+          $result=$connection->prepare("INSERT INTO persone(codiceFiscale, nome, cognome, recapito,titolare,idIstituto,idClasse) VALUES
+            (:codiceFiscale, :nome, :cognome, :recapito,:idIstituto,:idClasse);");
           $result->execute(array('codiceFiscale'=>$codiceFiscale,':nome'=>$nome,
-                     ':cognome'=>$cognome,':recapito'=>$recapito,':tipoSpecializzazione'=>$tipoSpecializzazione,':titolare'=>$titolare));
+                     ':cognome'=>$cognome,':recapito'=>$recapito,
+                     ':idIstituto'=>$idIstituto,
+                     ':idClasse'=>$idClasse));
           echo "<p>Nuova Persona inserita!</p>";
         } catch (PDOException $ex){
           echo "Errore PDO nell'inserzione di una nuova Persona!";
@@ -82,7 +85,7 @@
       }
     }
 
-    public function modifica($idPersona, $codiceFiscale, $nome,$cognome, $recapito, $tipoSpecializzazione, $titolare){
+    public function modifica($idPersona, $codiceFiscale, $nome,$cognome, $recapito,$idIstituto,$idClasse){
       //Questo non esegue la query, setta i parametri per il form e cambia l'azione del bottone
       //La query viene eseguita dal metodo update che parte quando clicco il pulsante Salva 
       $this->idPersona = $idPersona;
@@ -90,8 +93,8 @@
       $this->nome = $nome;
       $this->cognome = $cognome;
       $this->recapito = $recapito;
-      $this->tipoSpecializzazione = $tipoSpecializzazione;
-      $this->titolare = $titolare;
+      $this->idIstituto = $idIstituto;
+      $this->idClasse = $idClasse;
       self::$actionButton="save";
     }
 
@@ -106,16 +109,19 @@
         }        
     }
 
-    public function update($idPersona, $codiceFiscale, $nome,$cognome, $recapito, $tipoSpecializzazione, $titolare){
+    public function update($idPersona, $codiceFiscale, $nome,$cognome, $recapito,$idIstituto,$idClasse){
       //Tipo specializzazione e titolare sono per forza diversi da "" perche li seleziono da un menu a tendina
-      if($codiceFiscale!="" && $nome!="" && $cognome!="" && $recapito!=""){
+      if($codiceFiscale!="" && $nome!="" && $cognome!="" && $recapito!="" && $titolare!="" && $idIstituto="" && $idClasse=""){
         try{
           $connection=Connection::getConnection();
           $result=$connection->prepare("UPDATE persone SET codiceFiscale=:codiceFiscale,nome=:nome,
-                   cognome=:cognome,recapito=:recapito,tipoSpecializzazione=:tipoSpecializzazione,titolare=:titolare
+                   cognome=:cognome,recapito=:recapito,idIstituto=:idIstituto,idClasse=:idClasse
                    WHERE idPersona=:idPersona;");
           $result->execute(array('codiceFiscale'=>$codiceFiscale,':nome'=>$nome,
-                     ':cognome'=>$cognome,':recapito'=>$recapito,':tipoSpecializzazione'=>$tipoSpecializzazione,':titolare'=>$titolare,':idPersona'=>$idPersona));
+                     ':cognome'=>$cognome,':recapito'=>$recapito,
+                     ':idIstituto'=>$idIstituto,
+                     ':idClasse'=>$idClasse,
+                     ':idPersona'=>$idPersona));
 
           echo "<p>Modifiche Salvate!</p>";
         } catch (PDOException $ex){
